@@ -4,6 +4,9 @@
 - **This package requried 3rd party library, [Boost](http://www.boost.org/). Be sure your Boost was well installed before building the package.**
 - The following contains some basic control using modbus RTU communication instructions to control robotiq 2-finger 850 gripper.
 
+### Maintainer
+[Howard Chen](https://github.com/s880367), <howardchen.ece04g@g2.nctu.edu.tw>, National Chaio Tung University, Taiwan.
+
 ## Usage and install
 - Just create ```/build``` and ```cmake..```, then ```make```
 - **[Note]** Be sure to check your port ```/dev/ttyUSB0``` or ```/dev/ttyUSB1```or ```COM3``` etc.

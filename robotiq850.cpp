@@ -19,8 +19,7 @@
  **********************************************************************/
 /*
  * TODO: 
- * 1. Convert the ASCII commmand returned from gripper to char.
- * 2. More control method for gripper (force, position)
+ * More control method for gripper (force, position)
  * 
  */
 
@@ -64,7 +63,7 @@ int main(int argc, char const *argv[])
 	printf("Response1 : ");
 	for (int i = 0; i < return_size; ++i)
 	{
-		printf("%x",Return_data[i] & 0xff);
+		printf("%02x ",Return_data[i] & 0xff);
 	}
 	printf("\n");
 	usleep(10000);
@@ -77,7 +76,7 @@ int main(int argc, char const *argv[])
 	printf("Response2 : ");
 	for (int i = 0; i < return_size; ++i)
 	{
-		printf("%x",Return_data[i] & 0xff);
+		printf("%02x ",Return_data[i] & 0xff);
 	}
 	printf("\n");
 	sleep(1);
@@ -92,12 +91,13 @@ int main(int argc, char const *argv[])
 		printf("Open : ");
 		for (int i = 0; i < return_size; ++i)
 		{
-			printf("%x",Return_data[i] & 0xff);
+			printf("%02x ",Return_data[i] & 0xff);
 		}
 		printf("\n");
 
 		if(getchar() == 'q')
 			break;
+
 		//Close the Gripper at full speed and full force
 		unsigned char data4[] = {0x09,0x10,0x03,0xE8,0x00,0x03,0x06,0x09,0x00,0x00,0xFF,0xFF,0xFF,0x42,0x29};
 		port.write_some(boost::asio::buffer(data4,sizeof(data4)));
@@ -106,7 +106,7 @@ int main(int argc, char const *argv[])
 		printf("Close : ");
 		for (int i = 0; i < return_size; ++i)
 		{
-			printf("%x",Return_data[i] & 0xff);
+			printf("%02x ",Return_data[i] & 0xff);
 		}
 		printf("\n");
 		

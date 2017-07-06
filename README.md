@@ -50,8 +50,8 @@ The following table describes the connection requirements for controlling the Gr
 **2. Read Gripper status until the activation is completed**
 - Request : ```09 03 07 D0 00 01 85 CF```
 - Response :
- - ```09 03 02 11 00 55 D5``` (The activation is not completed)
- - ```09 03 02 31 00 4C 15``` (The activation is completed)
+  - ```09 03 02 11 00 55 D5``` (The activation is not completed)
+  - ```09 03 02 31 00 4C 15``` (The activation is completed)
 
 **3. Close with full speed&force**
 
@@ -63,8 +63,8 @@ The following table describes the connection requirements for controlling the Gr
 **4. Read status until closing is complete**
 - Request : ```09 03 07 D0 00 03 04 0E```
 - Response :
- - ```09 03 06 39 00 00 FF 0E 0A F7 8B``` (Closing is not completed)
- - ```09 03 06 B9 00 00 FF BD 00 1D 7C``` (Closing is completed)
+  - ```09 03 06 39 00 00 FF 0E 0A F7 8B``` (Closing is not completed)
+  - ```09 03 06 B9 00 00 FF BD 00 1D 7C``` (Closing is completed)
 
 **5. Open with full speed&force**
 ![](https://i.imgur.com/gjrxzuq.png)
@@ -74,8 +74,8 @@ The following table describes the connection requirements for controlling the Gr
 **6. Read status until opening is complete**
 - Request: ```09 03 07 D0 00 03 04 0E```
 - Response:
- - ```09 03 06 39 00 00 00 BB 10 30 E0```(Opening is not completed)
- - ```09 03 06 F9 00 00 00 0D 00 56 4C```(Opening is completed)
+  - ```09 03 06 39 00 00 00 BB 10 30 E0```(Opening is not completed)
+  - ```09 03 06 F9 00 00 00 0D 00 56 4C```(Opening is completed)
 
 
 ## Reference

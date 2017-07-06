@@ -10,8 +10,13 @@
 ## Usage and install
 - Just create ```/build``` and ```cmake..```, then ```make```
 - **[Note]** Be sure to check your port ```/dev/ttyUSB0``` or ```/dev/ttyUSB1```or ```COM3``` etc.
-- Use ```root``` privilege to run the program, like ```sudo```.
 - The program will **activate** and **open with full speed&force**. Then press ```enter```to **close** and **open** the gripper, ```q```to quit program.
+- Because this program will access hardware device ```/dev/ttyUSBx```,which belongs to the ```dialout``` group. Therefore, run with ```sudo``` or if you are **non root user**, be sure to contact your root user to add you into the ```dialout group```.
+
+### Troubleshooting
+1. [Serial port terminal > Cannot open /dev/ttyS0: Permission denied](https://askubuntu.com/questions/210177/serial-port-terminal-cannot-open-dev-ttys0-permission-denied)
+2. [How to allow a non-default user to use serial device ttyUSB0](https://askubuntu.com/questions/112568/how-do-i-allow-a-non-default-user-to-use-serial-device-ttyusb0)
+
 ## Connection Setup
 The following table describes the connection requirements for controlling the Gripper using the Modbus RTU protocol.
 ![](https://i.imgur.com/7XRRGiJ.png)
@@ -34,8 +39,8 @@ The following table describes the connection requirements for controlling the Gr
 **2. Read Gripper status until the activation is completed**
 - Request : ```09 03 07 D0 00 01 85 CF```
 - Response :
-```09 03 02 11 00 55 D5```(not completed)
- ```09 03 02 31 00 4C 15```(completed)
+```09 03 02 11 00 55 D5```(The activation is not completed)
+```09 03 02 31 00 4C 15```(The activation is completed)
 
 
 **3. Close with full speed&force**
@@ -47,8 +52,8 @@ The following table describes the connection requirements for controlling the Gr
 **4. Read status until closing is complete**
 - Request : ```09 03 07 D0 00 03 04 0E```
 - Response :
-```09 03 06 39 00 00 FF 0E 0A F7 8B``` (not completed)
-```09 03 06 B9 00 00 FF BD 00 1D 7C``` (completed)
+```09 03 06 39 00 00 FF 0E 0A F7 8B``` (Closing is not completed)
+```09 03 06 B9 00 00 FF BD 00 1D 7C``` (Closing is completed)
 
 **5. Open with full speed&force**
 ![](https://i.imgur.com/gjrxzuq.png)
@@ -58,8 +63,8 @@ The following table describes the connection requirements for controlling the Gr
 **6. Read status until opening is complete**
 - Request: ```09 03 07 D0 00 03 04 0E```
 - Response:
-```09 03 06 39 00 00 00 BB 10 30 E0```(not completed)
-```09 03 06 F9 00 00 00 0D 00 56 4C```(completed)
+```09 03 06 39 00 00 00 BB 10 30 E0```(Opening is not completed)
+```09 03 06 F9 00 00 00 0D 00 56 4C```(Opening is completed)
 
 
 ## Reference
